@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Purrflix — Streaming for Cats</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23e50914'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='40'%3E%F0%9F%90%B1%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="logo">PURRFLIX</div>
+  <nav class="links"><a href="#rows">Home</a><a href="#rows">Moods</a><a href="#pricing">Pricing</a></nav>
+  <button class="btn btn-red btn-sm" data-open-signup>Join for $1</button>
+</header>
+
+<section class="hero" id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-shade"></div>
+  <div class="hero-content">
+    <span class="badge">🐾 PURRFLIX ORIGINAL</span>
+    <h1 id="hero-title"></h1>
+    <p id="hero-desc"></p>
+    <div class="hero-meta" id="hero-meta"></div>
+    <div class="hero-actions">
+      <button class="btn btn-white" id="hero-play">▶ Play</button>
+      <button class="btn btn-red" data-open-signup>Subscribe — $1/month</button>
+    </div>
+  </div>
+</section>
+
+<main id="rows" class="rows"></main>
+
+<section class="pricing" id="pricing">
+  <h2>One plan. One dollar. Infinite naps.</h2>
+  <div class="plan">
+    <div class="plan-head"><span class="price">$1</span><span>/month</span></div>
+    <ul>
+      <li>✓ Unlimited mood-matched cat TV</li>
+      <li>✓ Ad-free (no dogs, ever)</li>
+      <li>✓ Watch on any screen your cat sits on</li>
+      <li>✓ Cancel anytime, no hairballs attached</li>
+    </ul>
+    <button class="btn btn-red btn-block" data-open-signup>Start watching for $1</button>
+  </div>
+</section>
+
+<footer class="footer">© 2026 Purrflix · A prototype · No cats were billed in the making of this site.</footer>
+
+<!-- Player modal -->
+<div class="modal" id="player" role="dialog" aria-modal="true" aria-labelledby="player-title" hidden>
+  <div class="modal-card player-card">
+    <button class="close" data-close aria-label="Close">✕</button>
+    <div class="stage"><canvas id="player-canvas"></canvas>
+      <button class="big-play" id="big-play" aria-label="Play/Pause">❚❚</button>
+    </div>
+    <div class="controls">
+      <button class="ctrl" id="toggle" aria-label="Play/Pause">❚❚</button>
+      <div class="progress" id="progress"><div class="bar" id="bar"></div></div>
+      <span class="time" id="time">0:00 / 0:00</span>
+    </div>
+    <div class="player-info">
+      <h2 id="player-title"></h2>
+      <div class="hero-meta" id="player-meta"></div>
+      <p id="player-desc"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Signup modal -->
+<div class="modal" id="signup" role="dialog" aria-modal="true" hidden>
+  <div class="modal-card signup-card">
+    <button class="close" data-close aria-label="Close">✕</button>
+    <div id="signup-form-wrap">
+      <h2>Join Purrflix</h2>
+      <p class="muted">$1/month · Cancel anytime · Demo only, no payment is taken.</p>
+      <form id="signup-form">
+        <input id="signup-email" name="email" type="email" required placeholder="Your email" autocomplete="email" />
+        <input id="signup-cat" name="cat" type="text" required placeholder="Your cat's name" autocomplete="off" />
+        <button class="btn btn-red btn-block" type="submit">Subscribe for $1/month</button>
+      </form>
+    </div>
+    <div id="signup-done" hidden><h2>Welcome to the clowder! 🎉</h2><p class="muted">This is a prototype — nothing was charged.</p></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

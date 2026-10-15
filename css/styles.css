@@ -1,0 +1,75 @@
+:root{--bg:#0b0b0d;--red:#e50914;--text:#f5f5f1;--muted:#a3a3a3;--card:#18181c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0}
+.btn{padding:.75rem 1.5rem;border-radius:6px;font-weight:700;font-size:1rem;transition:transform .15s,filter .15s}
+.btn:hover{transform:scale(1.04);filter:brightness(1.1)}
+.btn-red{background:var(--red);color:#fff}.btn-white{background:#fff;color:#111}
+.btn-sm{padding:.45rem 1rem;font-size:.9rem}.btn-block{width:100%}
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;gap:2rem;padding:1rem 4vw;background:linear-gradient(#000c,transparent);transition:background .3s}
+.nav.solid{background:#0b0b0df2}
+.logo{color:var(--red);font-weight:900;font-size:1.8rem;letter-spacing:.06em}
+.links{display:flex;gap:1.2rem;flex:1;font-size:.95rem;color:#ddd}.links a:hover{color:#fff}
+/* hero */
+.hero{position:relative;height:82vh;min-height:480px;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,#0b0b0dee 0%,#0b0b0d88 40%,transparent 70%),linear-gradient(transparent 60%,var(--bg))}
+.hero-content{position:absolute;left:4vw;bottom:18%;max-width:560px}
+.badge{font-size:.8rem;letter-spacing:.15em;color:#ddd}
+.hero h1{font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;margin:.6rem 0 1rem;text-shadow:0 4px 20px #000}
+.hero p{font-size:1.1rem;color:#ddd;margin-bottom:.8rem}
+.hero-meta{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;font-size:.85rem;color:var(--muted);margin-bottom:1.2rem}
+.tag{border:1px solid #555;padding:.1rem .5rem;border-radius:3px;color:#ddd}
+.match{color:#46d369;font-weight:700}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+/* rows */
+.rows{position:relative;margin-top:-8vh;z-index:2}
+.row{margin-bottom:2.2rem}
+.row h3{padding:0 4vw;margin-bottom:.6rem;font-size:1.3rem}
+.row-wrap{position:relative}
+.track{display:flex;gap:.6rem;overflow-x:auto;scroll-behavior:smooth;padding:1.6rem 4vw;margin:-1.6rem 0;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.arrow{position:absolute;top:0;bottom:0;width:4vw;min-width:32px;z-index:3;background:#000a;color:#fff;font-size:2rem;opacity:0;transition:opacity .2s}
+.row-wrap:hover .arrow{opacity:1}.arrow.l{left:0}.arrow.r{right:0}
+.card{flex:0 0 clamp(170px,19vw,280px);aspect-ratio:16/9;border-radius:6px;position:relative;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s;outline:none}
+.card:hover,.card:focus-visible{transform:scale(1.12);z-index:4;box-shadow:0 12px 30px #000c}
+.card .emoji{position:absolute;right:8%;top:50%;transform:translateY(-55%);font-size:clamp(2.2rem,4vw,3.4rem);filter:drop-shadow(0 4px 8px #0008);transition:transform .3s}
+.card:hover .emoji{transform:translateY(-60%) scale(1.15) rotate(-6deg)}
+.card .ctitle{position:absolute;left:.7rem;bottom:.6rem;right:40%;font-weight:800;font-size:.95rem;line-height:1.1;text-shadow:0 2px 6px #000}
+.card .dur{position:absolute;top:.5rem;left:.6rem;font-size:.7rem;background:#000a;padding:.1rem .4rem;border-radius:3px}
+.card .info{position:absolute;inset:auto 0 0;padding:.5rem .7rem;background:linear-gradient(transparent,#000e 40%);transform:translateY(100%);transition:transform .25s;font-size:.72rem;display:flex;gap:.4rem;align-items:center}
+.card:hover .info{transform:none}.card:hover .ctitle{bottom:2.1rem}
+/* pricing */
+.pricing{padding:4rem 4vw;text-align:center;background:radial-gradient(ellipse at top,#3a0a0e,transparent 70%)}
+.pricing h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:2rem}
+.plan{max-width:380px;margin:auto;background:var(--card);border:1px solid #333;border-radius:14px;padding:2rem;text-align:left;box-shadow:0 20px 50px #0008}
+.plan-head{text-align:center;margin-bottom:1.2rem;color:var(--muted)}.price{font-size:3.5rem;font-weight:900;color:#fff}
+.plan ul{list-style:none;margin-bottom:1.5rem;line-height:2}
+.footer{text-align:center;color:#666;font-size:.8rem;padding:2rem}
+/* modals */
+.modal{position:fixed;inset:0;z-index:50;background:#000c;display:flex;align-items:center;justify-content:center;padding:2vh 2vw;animation:fade .2s}
+.modal[hidden]{display:none}
+@keyframes fade{from{background:#0000}}
+.modal-card{position:relative;background:var(--card);border-radius:12px;overflow:hidden;width:min(960px,100%);max-height:96vh;overflow-y:auto;box-shadow:0 30px 80px #000;animation:pop .25s}
+@keyframes pop{from{transform:scale(.94)}}
+.close{position:absolute;top:.8rem;right:.8rem;z-index:5;width:38px;height:38px;border-radius:50%;background:#000b;color:#fff;font-size:1.1rem}
+.close:hover{background:#333}
+.stage{position:relative;aspect-ratio:16/9;background:#000}
+.stage canvas{width:100%;height:100%;display:block}
+.big-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:#0008;color:#fff;font-size:1.6rem;opacity:0;transition:opacity .2s}
+.stage:hover .big-play{opacity:1}
+.controls{display:flex;align-items:center;gap:1rem;padding:.8rem 1.2rem;background:#111}
+.ctrl{background:none;color:#fff;font-size:1.2rem;width:28px}
+.progress{flex:1;height:6px;background:#444;border-radius:3px;cursor:pointer;position:relative}
+.progress:hover{height:8px}
+.bar{height:100%;width:0;background:var(--red);border-radius:3px;position:relative}
+.bar::after{content:"";position:absolute;right:-6px;top:50%;width:12px;height:12px;border-radius:50%;background:var(--red);transform:translateY(-50%)}
+.time{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.player-info{padding:1.2rem 1.5rem 1.6rem}.player-info h2{font-size:1.8rem;margin-bottom:.5rem}
+.player-info p{color:#ccc;line-height:1.5}
+.signup-card{width:min(420px,100%);padding:2.2rem}
+.signup-card h2{margin-bottom:.4rem}.muted{color:var(--muted);font-size:.9rem;margin-bottom:1.2rem}
+.signup-card input{width:100%;padding:.8rem;margin-bottom:.8rem;border-radius:6px;border:1px solid #444;background:#222;color:#fff;font-size:1rem}
+@media(max-width:640px){.links{display:none}.nav{gap:1rem;justify-content:space-between}.hero{height:70vh}.hero p{font-size:.95rem}.arrow{display:none}}
